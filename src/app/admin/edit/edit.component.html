@@ -1,0 +1,48 @@
+<div class="container mt 5">
+    <h2>Edit User</h2>
+    <form name="editform" (ngSubmit) ="onSubmit(f)" #f="ngForm">
+        <div class="form-group">
+            <label for="">First Name</label>
+            <input   type = "text" class = "form-control" #inputFirstName= "ngModel" [ngModel]="admin.firstName" name="firstName" readonly >
+        </div>
+    <div class="form-group">
+        <label for="">Last Name</label>
+        <input  type = "text" class = "form-control"#inputLastName= "ngModel" [ngModel]="admin.lastName" name="lastName" readonly>
+    </div>
+    <div class="form-group">
+        <label for="">Loan Number</label>
+        <input minlength="1" pattern="\b([1-9]|[1-9][0-9]|100)\b" #inputLoanNumber= "ngModel"  type = "text" class = "form-control" [ngModel]="admin.loanNumber" name="loanNumber" readonly>
+    </div>
+    
+    <div class="form-group">
+        <label for="">Address</label>
+        <input required type = "text" #address="ngModel" #inputAddress= "ngModel" [class.is-invalid]="address.invalid" class = "form-control" [ngModel]="admin.address" name="address" required>
+        <small class="text-danger" [class.d-none]="address.valid">Address is required</small>
+    </div>
+    <div class="form-group">
+        <label for="">Loan Amount</label>
+        <input minlength=1 maxlength=8 pattern="\b([1-9]|[1-9][0-9]|100)\b"  #inputLoanAmount= "ngModel"  #loanAmount="ngModel" [class.is-invalid]="loanAmount.invalid" class = "form-control" [ngModel]="admin.loanAmount" name="loanAmount" required>
+        <small class="text-danger" [class.d-none]="loanAmount.valid">Loan Amount is required</small>
+    </div>
+    <!-- <div class="form-group">
+        <label for="">Loan Type</label>
+        <input type = "text" #loanType="ngModel" [class.is-invalid]="loanType.invalid && loanType.touched"  class = "form-control" [ngModel]="admin.loanType" name="loanType" required>
+    
+        <small class="text-danger" [class.d-none]="loanType.valid || loanType.untouched">Loan Type is required</small>
+    </div> -->
+    <div class="form-group">
+        <label for="">Loan Type</label>
+        <input type = "text" #loanType="ngModel" #inputLoanType= "ngModel" [class.is-invalid]="loanType.invalid"  class = "form-control" [ngModel]="admin.loanType" name="loanType" required>
+        <small class="text-danger" [class.d-none]="loanType.valid">Loan Type is required</small>
+    </div>
+    <div class="form-group">
+        <label for="">Loan Term</label>
+        <input minlength="1" pattern="\b([1-9]|[1-9][0-9]|100)\b"  inputLoanTerm= "ngModel" type="number" #loanTerm="ngModel" [class.is-invalid]="loanTerm.invalid" class = "form-control" [ngModel]="admin.loanTerm" name="loanTerm" required>
+        <small class="text-danger" [class.d-none]="loanTerm.valid">Loan Term is required</small></div>
+    <div class="form-group">
+        <button type = "submit" class = "btn btn-primary">Save</button>
+    </div>
+
+</form>
+</div>
+
